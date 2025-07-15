@@ -1,0 +1,46 @@
+<section class="riobotix-admin-section">
+  <div class="container">
+
+    <!-- Header de Administración -->
+    <div class="admin-header">
+      <div class="header-content">
+        <h1 class="admin-title">
+          <i class="ri-settings-3-line"></i>
+          Panel de Administración
+        </h1>
+        <p class="admin-subtitle">Gestiona las imágenes de la galería RIOBOTIX</p>
+      </div>
+
+      <div class="nav-actions">
+        <a routerLink="/galeria" class="btn-view-gallery">
+          <i class="ri-gallery-line"></i>
+          <span>Ver Galería Pública</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sección de carga de imágenes -->
+    <div class="upload-section">
+      <div class="section-header">
+        <h2>
+          <i class="ri-upload-cloud-2-line"></i>
+          Subir Nueva Imagen
+        </h2>
+      </div>
+      <app-image-form></app-image-form>
+    </div>
+
+    <!-- Sección de gestión de galería -->
+    <div class="gallery-management">
+      <div class="section-header">
+        <h2>
+          <i class="ri-image-2-line"></i>
+          Gestión de Galería
+        </h2>
+        <p class="section-subtitle">Administra las imágenes existentes</p>
+      </div>
+      <app-gallery [isAdminMode]="true"></app-gallery>
+    </div>
+
+  </div>
+</section>

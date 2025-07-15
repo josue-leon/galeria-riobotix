@@ -1,0 +1,63 @@
+<div class="riobotix-gallery-section">
+  <div class="container py-5">
+
+    <!-- Header solo visible en vista pública
+    <div class="gallery-header" *ngIf="!isAdminMode">
+      <div class="header-content">
+        <h1 class="gallery-title">
+          <i class="ri-gallery-line me-3"></i>
+          Galería RIOBOTIX
+        </h1>
+        <p class="gallery-subtitle">Momentos especiales de nuestra comunidad de robótica</p>
+      </div>
+
+      <div class="gallery-stats">
+        <div class="stat-card">
+          <i class="ri-image-2-line"></i>
+          <div class="stat-info">
+            <span class="stat-number">{{ images.length }}</span>
+            <span class="stat-label">{{ images.length === 1 ? 'Imagen' : 'Imágenes' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+    <!-- Stats simples para modo admin -->
+    <div class="admin-stats" *ngIf="isAdminMode">
+      <div class="stats-info">
+        <span class="total-images">{{ images.length }} {{ images.length === 1 ? 'imagen' : 'imágenes' }} en la galería</span>
+      </div>
+    </div>
+
+    <div class="gallery-content" *ngIf="images.length > 0; else emptyGallery">
+      <div class="images-grid">
+        <div class="image-wrapper" *ngFor="let image of images; trackBy: trackByImageId">
+          <app-image
+            [image]="image"
+            [isAdminMode]="isAdminMode"
+            (deletedImage)="onDeletedImage($event)">
+          </app-image>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #emptyGallery>
+      <div class="empty-gallery">
+        <div class="empty-content">
+          <div class="empty-icon">
+            <i class="ri-image-line"></i>
+          </div>
+          <h3 class="empty-title">Galería Vacía</h3>
+          <p class="empty-message" *ngIf="!isAdminMode">
+            Pronto encontrarás aquí momentos especiales de RIOBOTIX.<br>
+            ¡Mantente atento a nuestras actualizaciones!
+          </p>
+          <p class="empty-message" *ngIf="isAdminMode">
+            ¡Comienza agregando la primera imagen!<br>
+            Usa el formulario de arriba para subir contenido.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

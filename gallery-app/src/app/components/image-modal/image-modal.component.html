@@ -1,0 +1,15 @@
+<div class="modal-header pixieset-modal-header">
+  <div class="modal-actions">
+    <button type="button" class="btn-action download-action" (click)="downloadImage()">
+      <i class="ri-download-line"></i>
+      <span>Descargar</span>
+    </button>
+    <button type="button" class="btn-close-modal" (click)="activeModal.dismiss()">
+      <i class="ri-close-line"></i>
+    </button>
+  </div>
+</div>
+
+<div class="modal-body pixieset-modal-body">
+  <img [src]="image.path" class="modal-image" [alt]="image.title || 'Imagen RIOBOTIX'">
+</div>

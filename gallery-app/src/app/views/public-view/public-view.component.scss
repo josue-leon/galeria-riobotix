@@ -1,0 +1,155 @@
+.riobotix-public-section {
+  background: var(--riobotix-hero-gradient);
+  min-height: 100vh;
+  font-family: var(--riobotix-font-body);
+
+  .container {
+    max-width: 1600px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .public-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 2px solid rgba(29, 170, 226, 0.1);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100px;
+      height: 2px;
+      background: var(--riobotix-primary);
+    }
+
+    .header-content {
+      flex: 1;
+
+      .gallery-title {
+        font-family: var(--riobotix-font-headings);
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: var(--riobotix-tech-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        i {
+          color: var(--riobotix-primary);
+          -webkit-text-fill-color: var(--riobotix-primary);
+          margin-right: 1rem;
+        }
+      }
+
+      .gallery-subtitle {
+        font-family: var(--riobotix-font-body);
+        color: var(--riobotix-secondary);
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin: 0;
+        opacity: 0.9;
+        letter-spacing: 1px;
+      }
+    }
+
+    .gallery-info {
+      .info-card {
+        background: rgba(29, 170, 226, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(29, 170, 226, 0.2);
+        border-radius: var(--riobotix-border-radius);
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: var(--riobotix-shadow);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--riobotix-shadow-hover);
+        }
+
+        i {
+          font-size: 2rem;
+          color: var(--riobotix-primary);
+          background: rgba(255, 255, 255, 0.8);
+          padding: 12px;
+          border-radius: 8px;
+        }
+
+        span {
+          font-family: var(--riobotix-font-body);
+          font-weight: 600;
+          color: var(--riobotix-secondary);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .riobotix-public-section {
+    .public-header .header-content .gallery-title {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .riobotix-public-section {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .public-header {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+
+      .header-content {
+        .gallery-title {
+          font-size: 2.5rem;
+        }
+
+        .gallery-subtitle {
+          font-size: 1.2rem;
+        }
+      }
+
+      .gallery-info .info-card {
+        padding: 1rem;
+
+        i {
+          font-size: 1.5rem;
+          padding: 10px;
+        }
+
+        span {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .riobotix-public-section {
+    .public-header .header-content .gallery-title {
+      font-size: 2rem;
+    }
+  }
+}

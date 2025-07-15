@@ -1,0 +1,295 @@
+.loading-spinner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 8px;
+  animation: shimmer 2s ease-in-out infinite;
+
+  i {
+    font-size: 1.5rem;
+    color: #64748b;
+    animation: rotate-spinner 1s linear infinite;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+  }
+}
+
+@keyframes rotate-spinner {
+  from { transform: rotateZ(0); }
+  to { transform: rotateZ(360deg); }
+}
+
+/* Masonry Image Card */
+.masonry-image-card {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  break-inside: avoid;
+  margin-bottom: 20px;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+    .image-overlay {
+      opacity: 1;
+    }
+
+    .image-content {
+      transform: scale(1.02);
+    }
+  }
+
+  .image-content {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      transform: translateY(10px);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &:hover .action-buttons {
+    transform: translateY(0);
+  }
+
+  .action-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+
+    &:hover {
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.95);
+    }
+
+    i {
+      font-size: 18px;
+    }
+
+    &.download-btn:hover {
+      background: #10b981;
+      color: white;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    &.view-btn:hover {
+      background: var(--riobotix-primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(29, 170, 226, 0.4);
+    }
+
+    &.delete-btn:hover {
+      background: #ef4444;
+      color: white;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+  }
+
+  // Clases específicas para diferentes aspect ratios optimizadas para iPhone
+  &.tall {
+    // Imágenes muy verticales (iPhone portrait típico)
+    .image-content {
+      min-height: 600px;
+      max-height: 800px;
+    }
+  }
+
+  &.medium-tall {
+    // Imágenes verticales moderadas
+    .image-content {
+      min-height: 480px;
+      max-height: 620px;
+    }
+  }
+
+  &.square {
+    // Imágenes cuadradas
+    .image-content {
+      min-height: 400px;
+      max-height: 500px;
+    }
+  }
+
+  &.medium-wide {
+    // Imágenes horizontales moderadas
+    .image-content {
+      min-height: 320px;
+      max-height: 420px;
+    }
+  }
+
+  &.wide {
+    // Imágenes panorámicas
+    .image-content {
+      min-height: 260px;
+      max-height: 340px;
+    }
+  }
+}
+
+/* Animation for newly added images */
+.masonry-image-card {
+  animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .masonry-image-card {
+    margin-bottom: 16px;
+    border-radius: 8px;
+
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    .action-buttons {
+      gap: 6px;
+    }
+
+    // Ajustar alturas en móvil
+    &.tall .image-content {
+      min-height: 500px;
+      max-height: 650px;
+    }
+
+    &.medium-tall .image-content {
+      min-height: 420px;
+      max-height: 550px;
+    }
+
+    &.square .image-content {
+      min-height: 350px;
+      max-height: 450px;
+    }
+
+    &.medium-wide .image-content {
+      min-height: 280px;
+      max-height: 360px;
+    }
+
+    &.wide .image-content {
+      min-height: 220px;
+      max-height: 280px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-image-card {
+    margin-bottom: 12px;
+
+    .action-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+
+      i {
+        font-size: 14px;
+      }
+    }
+
+    .action-buttons {
+      gap: 4px;
+    }
+
+    // Alturas más pequeñas en móviles muy pequeños
+    &.tall .image-content {
+      min-height: 450px;
+      max-height: 580px;
+    }
+
+    &.medium-tall .image-content {
+      min-height: 380px;
+      max-height: 480px;
+    }
+
+    &.square .image-content {
+      min-height: 320px;
+      max-height: 400px;
+    }
+
+    &.medium-wide .image-content {
+      min-height: 250px;
+      max-height: 320px;
+    }
+
+    &.wide .image-content {
+      min-height: 200px;
+      max-height: 250px;
+    }
+  }
+}
+

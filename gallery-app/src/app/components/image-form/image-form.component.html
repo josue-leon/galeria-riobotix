@@ -1,0 +1,82 @@
+<section class="riobotix-form-section">
+  <!-- Errors -->
+  <div class="alert riobotix-alert-danger" *ngIf="errors.length > 0">
+    <div class="container">
+      <div class="alert-header">
+        <i class="ri-error-warning-line"></i>
+        <span>Se encontraron errores</span>
+      </div>
+      <ul class="error-list">
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="alert riobotix-alert-success" *ngIf="responseMessage">
+    <div class="container">
+      <div class="alert-content">
+        <i class="ri-check-line"></i>
+        <span>{{ responseMessage }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Form -->
+  <div class="container py-5">
+    <div class="form-wrapper">
+      <div class="form-header">
+        <h2 class="form-title">
+          <i class="ri-image-add-line me-2"></i>
+          Agregar Nueva Imagen
+        </h2>
+        <p class="form-subtitle">Comparte un momento especial con la comunidad RIOBOTIX</p>
+      </div>
+
+      <form [formGroup]="imageForm" (ngSubmit)="onSubmit()" class="riobotix-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">
+              <i class="ri-text me-2"></i>
+              Título (opcional)
+            </label>
+            <input
+              type="text"
+              class="form-control riobotix-input"
+              formControlName="title"
+              placeholder="Nombre de la imagen..."
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <i class="ri-upload-cloud-2-line me-2"></i>
+              Seleccionar Imagen
+            </label>
+            <div class="file-input-wrapper">
+              <input
+                type="file"
+                class="form-control riobotix-file-input"
+                (change)="onChange($event)"
+                #inputFile
+                accept="image/*,.heic,.heif"
+              >
+              <div class="file-input-overlay">
+                <i class="ri-image-line"></i>
+                <span>Arrastra una imagen o haz clic para seleccionar</span>
+                <small class="file-formats">Formatos: JPG, PNG, HEIC (iPhone)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn riobotix-btn-primary" type="submit" [disabled]="!imageForm.get('image')?.value">
+            <i class="ri-save-line me-2"></i>
+            Guardar Imagen
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

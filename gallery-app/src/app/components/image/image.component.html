@@ -1,0 +1,38 @@
+<!-- Spinner -->
+<div class="loading-spinner rounded" [hidden]="!isLoading">
+  <i class="ri-loader-4-line"></i>
+</div>
+
+<!-- Masonry Image Card -->
+<div class="masonry-image-card" [hidden]="isLoading" [attr.data-image-id]="image.id">
+  <img
+    [src]="image.path"
+    class="image-content"
+    (load)="onImageLoad($event)"
+    [alt]="image.title || 'Imagen RIOBOTIX'"
+    #imageElement
+  >
+
+  <div class="image-overlay">
+    <div class="action-buttons">
+      <!-- Botón descargar (siempre visible) -->
+      <button class="action-btn download-btn" (click)="downloadImage()" title="Descargar">
+        <i class="ri-download-line"></i>
+      </button>
+
+      <!-- Botón ver (siempre visible) -->
+      <button class="action-btn view-btn" (click)="openImageModal()" title="Ver">
+        <i class="ri-eye-line"></i>
+      </button>
+
+      <!-- Botón eliminar (solo en modo admin) -->
+      <button
+        *ngIf="isAdminMode"
+        class="action-btn delete-btn"
+        (click)="deleteImage()"
+        title="Eliminar">
+        <i class="ri-delete-bin-5-line"></i>
+      </button>
+    </div>
+  </div>
+</div>

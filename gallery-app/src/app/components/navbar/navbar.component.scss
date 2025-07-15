@@ -1,0 +1,269 @@
+.riobotix-navbar {
+  background: linear-gradient(135deg, var(--riobotix-dark) 0%, var(--riobotix-secondary) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid rgba(29, 170, 226, 0.2);
+  padding: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(29, 170, 226, 0.1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(29, 170, 226, 0.1), transparent);
+    animation: scan 4s infinite;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .navbar-brand {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+
+    &:hover {
+      transform: translateY(-2px);
+
+      .navbar-logo {
+        filter: drop-shadow(0 8px 16px rgba(29, 170, 226, 0.4));
+      }
+    }
+
+    .navbar-logo {
+      height: 50px;
+      width: auto;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 4px 8px rgba(29, 170, 226, 0.2));
+    }
+  }
+
+  .navbar-title {
+    flex: 1;
+    text-align: center;
+    margin-left: 2rem;
+
+    h1 {
+      font-family: var(--riobotix-font-headings);
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(135deg, #ffffff 0%, var(--riobotix-primary) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .navbar-subtitle {
+      font-family: var(--riobotix-font-body);
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0.25rem 0 0 0;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+  }
+
+  .navbar-navigation {
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+    position: relative;
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--riobotix-border-radius);
+      text-decoration: none;
+      font-family: var(--riobotix-font-body);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        color: white;
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      &.active {
+        background: var(--riobotix-tech-gradient);
+        border-color: var(--riobotix-primary);
+        color: white;
+        box-shadow: 0 4px 12px rgba(29, 170, 226, 0.3);
+      }
+
+      i {
+        font-size: 1.2rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      &.admin-btn {
+        &:hover, &.active {
+          background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+          border-color: #ff6b6b;
+          box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+      }
+    }
+  }
+
+  .navbar-tech-glow {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(29, 170, 226, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse-glow 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .navbar-scan-line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, var(--riobotix-primary) 50%, transparent 100%);
+    animation: scan-vertical 2s ease-in-out infinite;
+    opacity: 0.6;
+  }
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.3);
+  }
+}
+
+@keyframes scan-vertical {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .riobotix-navbar {
+    .navbar-title {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .navbar-subtitle {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .riobotix-navbar {
+    padding: 1rem 0;
+
+    .container {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .navbar-brand {
+      .navbar-logo {
+        height: 40px;
+      }
+    }
+
+    .navbar-title {
+      margin-left: 0;
+
+      h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
+
+      .navbar-subtitle {
+        font-size: 0.85rem;
+      }
+    }
+
+    .navbar-navigation {
+      gap: 0.5rem;
+
+      .nav-btn {
+        padding: 0.6rem 1rem;
+
+        i {
+          font-size: 1rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .navbar-tech-glow {
+      width: 80px;
+      height: 80px;
+      right: 5%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .riobotix-navbar {
+    .navbar-title {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .navbar-subtitle {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

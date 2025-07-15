@@ -1,0 +1,157 @@
+/* RIOBOTIX Modal */
+.pixieset-modal-header {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 0;
+  box-shadow: 0 2px 10px rgba(29, 170, 226, 0.1);
+
+  .modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+
+    .btn-action {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--riobotix-tech-gradient);
+      color: white;
+      border: none;
+      border-radius: var(--riobotix-border-radius);
+      padding: 12px 24px;
+      font-family: var(--riobotix-font-body);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: var(--riobotix-shadow);
+
+      &:hover {
+        background: var(--riobotix-secondary);
+        transform: translateY(-2px);
+        box-shadow: var(--riobotix-shadow-hover);
+      }
+
+      i {
+        font-size: 18px;
+      }
+
+      span {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .btn-close-modal {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: rgba(29, 170, 226, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--riobotix-primary);
+
+      &:hover {
+        background: var(--riobotix-primary);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(29, 170, 226, 0.3);
+      }
+
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.pixieset-modal-body {
+  padding: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  max-height: 80vh;
+
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+/* Override default Bootstrap modal styles */
+:host ::ng-deep {
+  .modal-dialog {
+    max-width: 90vw;
+    margin: 2rem auto;
+  }
+
+  .modal-content {
+    border: none;
+    border-radius: var(--riobotix-border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(29, 170, 226, 0.15), 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :host ::ng-deep .modal-dialog {
+    max-width: 95vw;
+    margin: 1rem auto;
+  }
+
+  .pixieset-modal-header {
+    padding: 0.75rem 1rem;
+
+    .modal-actions {
+      .btn-action {
+        padding: 8px 16px;
+        font-size: 12px;
+
+        i {
+          font-size: 16px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .btn-close-modal {
+        width: 36px;
+        height: 36px;
+
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .pixieset-modal-body {
+    min-height: 50vh;
+    max-height: 70vh;
+  }
+}

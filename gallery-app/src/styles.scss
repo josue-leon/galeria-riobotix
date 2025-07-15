@@ -1,0 +1,118 @@
+/* Google Fonts - RIOBOTIX Typography */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+$font-family-base: "Poppins", "Inter", "Segoe UI", Roboto, sans-serif;
+$font-family-headings: "Oxanium", "Inter", sans-serif;
+
+/* RIOBOTIX Official Theme Variables */
+:root {
+  --riobotix-primary: #1DAAE2;
+  --riobotix-cyan: #00D2FF;
+  --riobotix-secondary: #3A4750;
+  --riobotix-accent: #FF6B6B;
+  --riobotix-dark: #1A1D23;
+  --riobotix-light: #F8FAFC;
+  --riobotix-white: #ffffff;
+
+  /* RIOBOTIX Gradients */
+  --riobotix-gradient: linear-gradient(135deg, #1DAAE2 0%, #00D2FF 100%);
+  --riobotix-tech-gradient: linear-gradient(135deg, #1DAAE2 0%, #3A4750 100%);
+  --riobotix-hero-gradient: linear-gradient(135deg, var(--riobotix-light) 0%, #ffffff 100%);
+
+  /* Effects */
+  --riobotix-shadow: 0 10px 25px rgba(29, 170, 226, 0.15);
+  --riobotix-shadow-hover: 0 15px 35px rgba(29, 170, 226, 0.25);
+  --riobotix-border-radius: 12px;
+  --riobotix-border-radius-lg: 20px;
+
+  /* Typography */
+  --riobotix-font-headings: "Oxanium", sans-serif;
+  --riobotix-font-body: "Poppins", sans-serif;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--riobotix-font-body);
+  background: var(--riobotix-light);
+  color: var(--riobotix-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--riobotix-font-headings);
+  font-weight: 700;
+}
+
+/* Custom Bootstrap overrides */
+.btn-primary {
+  background: var(--riobotix-tech-gradient);
+  border: none;
+  border-radius: var(--riobotix-border-radius);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: var(--riobotix-shadow);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.3);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border: none;
+  border-radius: var(--riobotix-border-radius);
+  font-weight: 600;
+  box-shadow: var(--riobotix-shadow);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  border: none;
+  border-radius: var(--riobotix-border-radius);
+  font-weight: 600;
+  box-shadow: var(--riobotix-shadow);
+}
+
+.form-control {
+  border: 2px solid #E2E8F0;
+  border-radius: var(--riobotix-border-radius);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--riobotix-primary);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+}
+
+.card {
+  border: none;
+  border-radius: var(--riobotix-border-radius);
+  box-shadow: var(--riobotix-shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Tech-inspired animations */
+@keyframes pulse-tech {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 210, 255, 0.6);
+  }
+}
+
+.tech-glow {
+  animation: pulse-tech 2s infinite;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

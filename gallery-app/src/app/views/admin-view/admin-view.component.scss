@@ -1,0 +1,162 @@
+.riobotix-admin-section {
+  background: var(--riobotix-hero-gradient);
+  min-height: 100vh;
+  font-family: var(--riobotix-font-body);
+  padding-top: 2rem;
+
+  .container {
+    max-width: 1600px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 2px solid rgba(29, 170, 226, 0.1);
+
+    .header-content {
+      .admin-title {
+        font-family: var(--riobotix-font-headings);
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--riobotix-tech-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        i {
+          color: var(--riobotix-primary);
+          -webkit-text-fill-color: var(--riobotix-primary);
+          margin-right: 1rem;
+        }
+      }
+
+      .admin-subtitle {
+        font-family: var(--riobotix-font-body);
+        color: var(--riobotix-secondary);
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 0;
+        opacity: 0.9;
+        letter-spacing: 1px;
+      }
+    }
+
+    .nav-actions {
+      .btn-view-gallery {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--riobotix-tech-gradient);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: var(--riobotix-border-radius);
+        font-weight: 600;
+        box-shadow: var(--riobotix-shadow);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--riobotix-shadow-hover);
+          color: white;
+        }
+
+        i {
+          font-size: 1.2rem;
+        }
+
+        span {
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+
+  .upload-section, .gallery-management {
+    margin-bottom: 4rem;
+
+    .section-header {
+      margin-bottom: 2rem;
+
+      h2 {
+        font-family: var(--riobotix-font-headings);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--riobotix-secondary);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+
+        i {
+          color: var(--riobotix-primary);
+        }
+      }
+
+      .section-subtitle {
+        color: var(--riobotix-secondary);
+        opacity: 0.8;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .upload-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: var(--riobotix-border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--riobotix-shadow);
+    border: 1px solid rgba(29, 170, 226, 0.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .riobotix-admin-section {
+    .admin-header {
+      .header-content .admin-title {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .riobotix-admin-section {
+    padding-top: 1rem;
+
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .admin-header {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+
+      .header-content .admin-title {
+        font-size: 2rem;
+      }
+
+      .nav-actions .btn-view-gallery {
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    .upload-section {
+      padding: 1.5rem;
+    }
+  }
+}
