@@ -1,5 +1,6 @@
 # 🚀 Guía de Despliegue - Galería RIOBOTIX
 
+
 ## 📋 **Requisitos Previos**
 
 ### En tu VPS:
